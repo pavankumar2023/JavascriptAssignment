@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Assignment</title>
+</head>
+<style>
+    html{
+        background-color: rgb(231, 231, 146);
+    }
+h2{
+    text-align: center;
+        color: rgb(8, 8, 8);
+        font-size: large;
+    }
+   
+    Input {
+
+        padding: 5px 15px;
+        text-align: center;
+        margin-top: 30px;
+        margin-left: 500px;
+        
+    }
+
+    button{
+        font-size: large;
+        color: white;
+        background-color: rgb(19, 42, 39);
+        padding: 5px 15px;
+        margin-left: 160px;
+        margin-top: 40px;
+        border-radius: 10px;
+    }
+    button:hover{
+background-color: red;    }
+    
+    h3{
+        color: rgb(8, 8, 10);
+        padding: 20px;
+        text-align: center;
+    }
+</style>
+<body>
+    <h2> JavaScript Assignment </h2>
+<hr class="line">
+
+<div class="Inputs">
+    <input class="number" type="number" id="firstNumber" placeholder="First Number">
+    <input class ="number" type="number" id="secondNumber" placeholder="Second Number">
+
+    </div>
+        <button onclick="Calculation('+')">Add (+)</button>
+        <button onclick="Calculation('-')">Subtract (-)</button>
+        <button onclick="Calculation('*')">Multiply (*)</button>
+        <button onclick="Calculation('/')">Divide (/)</button>
+
+    <h3>Result: <span id="output"></span></h3>
+
+    <script>
+        function Calculation(operator) {
+            let num1 = parseFloat(document.getElementById("firstNumber").value);
+            let num2 = parseFloat(document.getElementById("secondNumber").value);
+
+            const operations = {
+                '+': (a, b) => a + b,
+                '-': (a, b) => a - b,
+                '*': (a, b) => a * b,
+                '/': (a, b) => b !== 0 ? a / b : 'Error: Divide by 0'
+            };
+
+            let result = operations[operator](num1, num2);
+
+            document.getElementById("output").textContent = result;
+        }
+    </script>
+</body>
+</html>
